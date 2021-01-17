@@ -317,7 +317,7 @@ namespace Synthia
                 _currentMidiDevice.Dispose();
             }
 
-            // start the midi device, attach event handler
+            /* start the midi device, attach event handler */
             _currentMidiDevice = new MidiIn(_midiDevices[midiDevicesCombo.SelectedItem.ToString()]);
             _currentMidiDevice.MessageReceived += midiIn_MessageReceived;
             _currentMidiDevice.Start();
@@ -325,6 +325,7 @@ namespace Synthia
         #endregion
 
         #region Main event handlers
+        /* Dispose of our midi device and output audio device */
         private void onWindowClose(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (_currentMidiDevice != null)
@@ -337,6 +338,11 @@ namespace Synthia
             }
         }
 
+        /*
+         * Check if key is in our valid keyboard keys.
+         * Check if we are not already pressing it.
+         * Turn note on.
+         */
         private void onKeyDown(object sender, KeyEventArgs e)
         {
             if (_initialized)
@@ -353,6 +359,11 @@ namespace Synthia
             e.Handled = true;
         }
 
+        /*
+         * Check if key is in our valid keyboard keys.
+         * Remove it from the pressed keys list
+         * Turn note off.
+         */
         private void onKeyUp(object sender, KeyEventArgs e)
         {
             if (!_keyboard.ContainsKey(e.Key))
@@ -373,7 +384,10 @@ namespace Synthia
 
         private void oscType_KeyDown(object sender, KeyEventArgs e)
         {
-
+            /* 
+             * This is used to stop the keyboard from messing with
+             * osc type combo boxes.
+             */
         }
 
         #endregion
