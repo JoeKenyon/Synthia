@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PluginFramework\PluginFramework.csproj" />
+    <ProjectReference Include="..\SynthiaTools\SynthiaTools.csproj" />
+    <ProjectReference Include="..\Synthia\Synthia.csproj" />
+    <ProjectReference Include="..\Tremolo\Tremolo.csproj" />
+    <ProjectReference Include="..\WahWah\WahWah.csproj" />
+  </ItemGroup>
+
+</Project>

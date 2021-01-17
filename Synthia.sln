@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synthia", "Synthia\Synthia.csproj", "{44911A4A-F390-4393-9271-5965AF3BD4AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginFramework", "PluginFramework\PluginFramework.csproj", "{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WahWah", "WahWah\WahWah.csproj", "{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynthiaTools", "SynthiaTools\SynthiaTools.csproj", "{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tremolo", "Tremolo\Tremolo.csproj", "{E0F4569C-44B2-4C1F-BB43-0337300640A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynthiaTest", "SynthiaTest\SynthiaTest.csproj", "{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseSources", "BaseSources\BaseSources.csproj", "{014D021A-152A-4A02-B9C0-381F465EDD91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44911A4A-F390-4393-9271-5965AF3BD4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44911A4A-F390-4393-9271-5965AF3BD4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44911A4A-F390-4393-9271-5965AF3BD4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44911A4A-F390-4393-9271-5965AF3BD4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F4569C-44B2-4C1F-BB43-0337300640A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F4569C-44B2-4C1F-BB43-0337300640A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F4569C-44B2-4C1F-BB43-0337300640A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F4569C-44B2-4C1F-BB43-0337300640A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014D021A-152A-4A02-B9C0-381F465EDD91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014D021A-152A-4A02-B9C0-381F465EDD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014D021A-152A-4A02-B9C0-381F465EDD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014D021A-152A-4A02-B9C0-381F465EDD91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB70D5EA-7835-4BCF-A339-968A071B6AE3}
+	EndGlobalSection
+EndGlobal
