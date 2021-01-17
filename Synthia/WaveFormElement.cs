@@ -5,12 +5,17 @@ using System.Windows.Media;
 namespace Synthia
 {
 
-    // This is our custom framework element 
-    // that will display waveforms of the output signal
+    /*
+     * This is our custom framework element 
+     * that will display waveforms of the output signal
+     */
     public class WaveFormElement : FrameworkElement
     {
-        // our dependency property, we will use this to change how the element is rendered.
-        // our render will be changed each time we change the value of 'Amplitudes'.
+
+        /*
+         * our dependency property, we will use this to change how the element is rendered.
+         * our render will be changed each time we change the value of 'Amplitudes'.
+         */
         static FrameworkPropertyMetadata meta = new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender);
         public static readonly DependencyProperty amplitudesProperty = DependencyProperty.Register("Amplitudes", typeof(float[]), typeof(WaveFormElement), meta);
 
@@ -23,12 +28,12 @@ namespace Synthia
             }
         }
 
-        // this function will tell the program how the to render the element
-        // when instructed to.
+        /*
+         * How the waveform element will be rendered.
+         */
         protected override void OnRender(DrawingContext drawingContext)
         {
-            RenderOptions.SetEdgeMode(this, EdgeMode.Unspecified);
-            RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.LowQuality);
+
 
             base.OnRender(drawingContext);
             
