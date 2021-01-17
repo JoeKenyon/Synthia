@@ -15,7 +15,6 @@ namespace Tremolo
         {
             Name = "Tremolo";
             _lfoFunc = x => (float)Math.Cos(x * 2 * Math.PI);
-
             Properties = new Property[]
             {
                 new SliderProperty()

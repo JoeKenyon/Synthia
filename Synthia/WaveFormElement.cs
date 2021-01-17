@@ -19,13 +19,13 @@ namespace Synthia
         static FrameworkPropertyMetadata meta = new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender);
         public static readonly DependencyProperty amplitudesProperty = DependencyProperty.Register("Amplitudes", typeof(float[]), typeof(WaveFormElement), meta);
 
+        /* Pen used to draw waveform */
+        readonly Pen pen = new Pen(Brushes.Black, 1);
+
         public float[] Amplitudes
         {
             get { return (float[])GetValue(amplitudesProperty); }
-            set
-            {
-                SetValue(amplitudesProperty, value);
-            }
+            set { SetValue(amplitudesProperty, value); }
         }
 
         /*
@@ -47,10 +47,6 @@ namespace Synthia
 
             // rectangle for background, change colour if you want idk
             drawingContext.DrawRectangle(Brushes.White, null, new Rect(0, 0, width, height));
-
-            // the pen we will use to draw the wave
-            Pen pen = new Pen(Brushes.Black, 1);
-
 
             var wave = Amplitudes;
 

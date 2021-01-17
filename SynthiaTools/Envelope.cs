@@ -6,14 +6,23 @@ namespace SynthiaTools
 {
     public class Envelope
     {
+        /*
+         * This is stop division by 0
+         */
+        private const float _minimumOutput = 0.0001f;
         private float _output;
         private float _coefficient;
         private EnvState _currentState;
         private int _samplesProcessed;
         private int _samplesUntilNextStage;
-        private const float _minimumOutput = 0.0001f;
         private Dictionary<EnvState, float> _stateValues;
 
+        /*
+         * Set the state of our envelope.
+         * 
+         * Calculate new coefficient when 
+         * changing to a new sate.
+         */
         public EnvState State
         {
             get => _currentState;
@@ -59,11 +68,16 @@ namespace SynthiaTools
             }
         }
 
-        public float SampleRate
+        /* Coefficient calculated to ensure linear rise in amplitude. */
+        private void calculateCoefficient(float start, float end, int length)
         {
-            get; set;
+            _coefficient = (end - start) / length;
         }
 
+        /* We can use the sample rate to calculate length of stages */
+        public float SampleRate{ get; set; }
+
+        #region Envelope properties
         public float IdleLevel
         {
             get => _stateValues[EnvState.Idle];
@@ -102,6 +116,7 @@ namespace SynthiaTools
             Sustain = 3,
             Release = 4,
         }
+        #endregion
 
         public Envelope(int sampleRate)
         {
@@ -123,11 +138,9 @@ namespace SynthiaTools
             _samplesUntilNextStage = 0;
         }
 
-        private void calculateCoefficient(float start, float end, int length)
-        {
-            _coefficient = (end - start) / length;
-        }
-
+        /*
+         * Returns 
+         */
         public float Process()
         {
             if (State != EnvState.Idle &&

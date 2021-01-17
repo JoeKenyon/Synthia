@@ -7,6 +7,9 @@ using System;
  */
 namespace BaseSources
 {
+    /// <summary>
+    /// Sine wave source plugin
+    /// </summary>
     public class Sine : SynthSourcePlugin
     {
         public override string Name => "Sine";
@@ -16,6 +19,9 @@ namespace BaseSources
         };
     }
 
+    /// <summary>
+    /// saw tooth source plugin
+    /// </summary>
     public class Sawtooth : SynthSourcePlugin
     {
         public override string Name => "Sawtooth";
@@ -25,6 +31,9 @@ namespace BaseSources
         };
     }
 
+    /// <summary>
+    /// sqaure wave source plugin
+    /// </summary>
     public class Square : SynthSourcePlugin
     {
         public override string Name => "Square";
@@ -34,6 +43,9 @@ namespace BaseSources
         };
     }
 
+    /// <summary>
+    /// Sine wave source plugin
+    /// </summary>
     public class Triangle : SynthSourcePlugin
     {
         public override string Name => "Triangle";
