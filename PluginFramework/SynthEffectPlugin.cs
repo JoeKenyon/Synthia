@@ -10,10 +10,11 @@ namespace PluginFramework
      */
     public abstract class SynthEffectPlugin : ISampleProvider
     {
-        /// <summary>
-        /// This will be the title used to display your
-        /// effect onscreen
-        /// </summary>
+
+        /*
+         * This will be the title used to display your
+         * effect onscreen
+         */
         public string Name { get; protected set; }
 
         /*
@@ -35,16 +36,16 @@ namespace PluginFramework
          */
         public Property[] Properties { get; set; }
 
-        /// <summary>
-        /// Input source, the effect will be applied
-        /// to this source.
-        /// </summary>
+        /*
+         * Input source, the effect will be applied
+         * to this source.
+         */
         public ISampleProvider Input { get; set; }
 
-        /// <summary>
-        /// How Wet the effect is. The higher
-        /// the wet, the more noticable it is.
-        /// </summary>
+        /*
+         * How Wet the effect is. The higher
+         * the wet, the more noticable it is.
+         */
         public float Wet { get; set; }
 
         public WaveFormat WaveFormat { get; set; }
@@ -57,10 +58,10 @@ namespace PluginFramework
             On = false;
         }
 
-        /// <summary>
-        /// Read method will go through each sample and apply
-        /// the effect, this will use the Wet value if above 0.
-        /// </summary>
+        /*
+         * Read method will go through each sample and apply
+         * the effect, this will use the Wet value if above 0.
+         */
         public int Read(float[] buffer, int offset, int count)
         {
             var samples = Input?.Read(buffer, offset, count) ?? count;
@@ -81,9 +82,9 @@ namespace PluginFramework
             return samples;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /*
+         *  Apply effect to an input sample.
+         */
         public abstract float Apply(float sample);
     }
     #endregion
