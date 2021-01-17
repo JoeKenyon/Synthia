@@ -81,10 +81,12 @@ namespace Synthia
                 { Key.OemQuestion, 64},
             };
 
+            /* To hold our key presses */
             _pressedKeys = new List<Key>();
 
+            /* Get dispatcher of UI thread so
+             * that we can update our wave renderer */
             dispatcher = Dispatcher.CurrentDispatcher;
-
             waveFormProvider = new WaveFormProvider(_synth);
             waveFormProvider.OnRead = (s, e) =>
             {
