@@ -27,7 +27,6 @@ namespace Synthia
         private Dictionary<Key, int> _keyboard;
         private MidiIn _currentMidiDevice;
         private bool _initialized = false;
-        private IWavePlayer _waveOutEvent;
         private List<Key> _pressedKeys;
         private Dispatcher dispatcher;
         private IWavePlayer player;
@@ -98,20 +97,26 @@ namespace Synthia
                 dispatcher.BeginInvoke(c);
             };
 
-            _waveOutEvent = new WaveOut()
+            /* 2 buffers seems like a good amount
+             * could be changed? */
+            player = new WaveOut()
             {
                 NumberOfBuffers = 2,
                 DesiredLatency = 100,
             };
-            player = _waveOutEvent;
             player.Init(waveFormProvider);
             player.Play();
         }
 
+        /*
+         * Alot of this is just so we can 
+         * automatically generate the UI
+         * as im lazy and dont like writing
+         * Xaml code.
+         */
         private void initializeUI()
         {
-            // offBtn.IsEnabled = false;
-
+            /* combo box of source signals */
             _synth.Sources.ForEach(s =>
             {
                 this.source1Combo.Items.Add(s);
@@ -120,12 +125,15 @@ namespace Synthia
             });
             this.source1Combo.SelectedIndex = 0;
 
+            /* filter types */
             foreach (Filter s in Enum.GetValues(typeof(Filter)))
                 this.filterTypeCombo.Items.Add(s);
             this.filterTypeCombo.SelectedIndex = 0;
 
+            /* no idea why i did this ------------V*/
             foreach (int s in new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 })
             {
+                /* Add values for octaves and semitones*/
                 this.octavesCombo1.Items.Add(s);
                 this.octavesCombo2.Items.Add(s);
                 this.octavesCombo3.Items.Add(s);
@@ -142,24 +150,26 @@ namespace Synthia
             this.semitonesCombo3.SelectedIndex = 4;
 
 
+            /* Here we generate the UI for our effects */
             var tabControl = this.effectsControl;
-
             _synth.Effects.ForEach(e =>
             {
-
-
                 Property[] prop = e.Properties;
 
+                /* Tab item for every effect */
                 TabItem tab = new TabItem
                 {
                     Header = e.Name,
                     Name = e.Name + "TabItem"
                 };
 
+                /* default width height */
                 int widgetHeight = 30;
 
+                /* Scroller used if too many properties */
                 ScrollViewer scroller = new ScrollViewer();
 
+                /* everything is organised using a wrap panel */
                 WrapPanel w = new WrapPanel();
                 w.Width = tabControl.Width;
                 w.Height = widgetHeight * (prop.Length + 1);
@@ -195,7 +205,6 @@ namespace Synthia
                     propName.Width = 100;
                     propName.Height = widgetHeight;
 
-
                     if (p.GetType() == typeof(SliderProperty))
                     {
                         SliderProperty sp = (SliderProperty)p;
@@ -205,24 +214,18 @@ namespace Synthia
                         s.Width = tabControl.Width - 200;
                         s.Height = 20;
                         s.IsEnabled = false;
-
                         Label sliderValue = new Label();
                         sliderValue.Content = string.Format(sp.ValueString, (float)s.Value);
                         sliderValue.Width = 100;
                         sliderValue.Height = widgetHeight;
-
-
                         s.ValueChanged += (o, i) =>
                         {
                             sp.onChange(s.Value);
                             sliderValue.Content = string.Format(sp.ValueString, (float)s.Value);
                         };
-
                         w.Children.Add(propName);
                         w.Children.Add(s);
                         w.Children.Add(sliderValue);
-
-
                     }
 
                     if (p.GetType() == typeof(DropDownProperty))
@@ -236,8 +239,6 @@ namespace Synthia
                         combo.SelectedIndex = 0;
                         combo.Height = widgetHeight;
                         combo.IsEnabled = false;
-
-
                         w.Children.Add(propName);
                         w.Children.Add(combo);
                     }
@@ -249,7 +250,15 @@ namespace Synthia
                 tabControl.SelectedIndex = 0;
             });
         }
+        #endregion
 
+        #region MIDI
+        /* 
+         * Initialize out midi devices, if
+         * we find any, we add them to the combo 
+         * box. Use a dictionary to store device
+         * numbers and the combobox string.
+         */
         private void InitMidiDevices()
         {
             midiDevicesCombo.Items.Clear();
@@ -268,19 +277,20 @@ namespace Synthia
                 midiDevicesCombo.SelectedIndex = 0;
         }
 
-        #endregion
-
-        #region MIDI
+        /* Event handler, will fire every time we get a midi message */
         private void midiIn_MessageReceived(object sender, MidiInMessageEventArgs e)
         {
-            // only looking for on and off midi events
+            /* split the data into the parts we need */
             int statusByte = e.RawMessage & 0xF0;
             int dataByte1 = (e.RawMessage >> 8) & 0xFF;
             int dataByte2 = (e.RawMessage >> 16) & 0xFF;
 
-            // note off = 0x80
-            // note on  = 0x90
-
+            /* 
+             * We are only really looking for on and off event
+             * Could add more in future but for now its not needed.
+             *      note off = 0x80
+             *      note on  = 0x90
+             */
             switch (statusByte)
             {
                 case 0x80:
@@ -300,7 +310,7 @@ namespace Synthia
         
         private void midiDevicesCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // if using a midi device already, dispose of it
+            /* If using a midi device already, dispose of it */
             if (_currentMidiDevice != default(MidiIn))
             {
                 _currentMidiDevice.Stop();
