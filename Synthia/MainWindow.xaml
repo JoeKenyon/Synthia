@@ -14,7 +14,7 @@
         VerticalContentAlignment="Stretch" ResizeMode="CanMinimize"
         Width="1311"
         Height="688"
-        Closing="onWindowClose"
+        Closing="onWindowClose" Icon="/synthiaLogo.png"
         >
     <Grid>
         <WrapPanel Orientation="Horizontal" Width="1300" VerticalAlignment="Center" HorizontalAlignment="Stretch">

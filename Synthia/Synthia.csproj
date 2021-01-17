@@ -7,9 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="synthiaLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BaseSources\BaseSources.csproj" />
     <ProjectReference Include="..\PluginFramework\PluginFramework.csproj" />
     <ProjectReference Include="..\SynthiaTools\SynthiaTools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="synthiaLogo.png" />
   </ItemGroup>
 
 </Project>
