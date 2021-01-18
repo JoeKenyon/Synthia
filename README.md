@@ -4,7 +4,9 @@ Synthersize made using Naudio.
 
 Takes midi input
 
-Or input using qwerty keybaord
+Or input using qwerty keyboard
+
+build your own plugins using the plugin framework
 
 <pre>
  ___________________________________________________________
