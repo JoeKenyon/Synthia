@@ -63,15 +63,6 @@ namespace SynthiaTools
             UseLFO = false;         
         }
 
-        public double LFOFrequency { get; set; }
-
-        public double LFOAmplitude { get; set; }
-
-        public bool UseLFO { get; set; }
-
-        public Func<float, float> FunctionOsc1 { get; set; }
-        public Func<float, float> FunctionOsc2 { get; set; }
-        public Func<float, float> FunctionOsc3 { get; set; }
 
         public float Attack
         {
@@ -96,16 +87,6 @@ namespace SynthiaTools
             get => _amplitudeEnvelope.ReleaseRate;
             set => _amplitudeEnvelope.ReleaseRate = value;
         }
-
-        public float AmplitudeOsc1 { get; set; }
-
-        public float AmplitudeOsc2 { get; set; }
-
-        public float AmplitudeOsc3 { get; set; }
-
-        public float FilterCutoff { get; set; }
-
-        public int FilterEnvelopeWidth { get; set; }
 
         public float FilterQ
         {
@@ -150,22 +131,26 @@ namespace SynthiaTools
         }
 
         public float FrequencyOsc1 { get; set; }
-
         public float FrequencyOsc2 { get; set; }
-
         public float FrequencyOsc3 { get; set; }
-
         public int SemitonesOsc1 { get; set; }
-
         public int SemitonesOsc2 { get; set; }
-
         public int SemitonesOsc3 { get; set; }
-
         public int OctaveOsc1 { get; set; }
-
         public int OctaveOsc2 { get; set; }
-
         public int OctaveOsc3 { get; set; }
+        public float AmplitudeOsc1 { get; set; }
+        public float AmplitudeOsc2 { get; set; }
+        public float AmplitudeOsc3 { get; set; }
+        public float FilterCutoff { get; set; }
+        public int FilterEnvelopeWidth { get; set; }
+        public double LFOFrequency { get; set; }
+        public double LFOAmplitude { get; set; }
+        public bool UseLFO { get; set; }
+        public Func<float, float> FunctionOsc1 { get; set; }
+        public Func<float, float> FunctionOsc2 { get; set; }
+        public Func<float, float> FunctionOsc3 { get; set; }
+
 
         private float NoteToFreq(int note, float tuning)
         {
@@ -233,7 +218,7 @@ namespace SynthiaTools
                     var sOsc2 = FunctionOsc2((float)_phase[1]) * (AmplitudeOsc2);
                     var sOsc3 = FunctionOsc3((float)_phase[2]) * (AmplitudeOsc3);
 
-                    var sampleValue = (sOsc1 + sOsc2 + sOsc3); /// (AmplitudeOsc1 + AmplitudeOsc2 + AmplitudeOsc3);
+                    var sampleValue = (sOsc1 + sOsc2 + sOsc3);
 
                     buffer[offset + index] = sampleValue * _amplitudeEnvelope.Process();
 
@@ -242,13 +227,8 @@ namespace SynthiaTools
                 }
                 else
                 {
-                    //if (IsPlaying)
-                    {
-                        IsPlaying = false;
-                        FinishedPlaying?.Invoke(this, new EventArgs());
-                        //_amplitudeEnvelope.State = Envelope.EnvState.Idle;
-                       // _filterEnvelope.State = Envelope.EnvState.Idle;
-                    }
+                    IsPlaying = false;
+                    FinishedPlaying?.Invoke(this, new EventArgs());
 
                     for (var channel = 0; channel < WaveFormat.Channels; ++channel)
                         buffer[index + offset + channel] = 0;

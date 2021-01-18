@@ -8,9 +8,7 @@ namespace SynthiaTools
     public class Mixer : ISampleProvider
     {
         private readonly List<ISampleProvider> _inputs;
-
         public int MaxInputs => 1024;
-
         public MixerMode Mode { get; set; }
 
         public Mixer(WaveFormat waveFormat)
@@ -58,7 +56,6 @@ namespace SynthiaTools
             }
                 
         }
-
         public void RemoveAllInputs()
         {
             lock (_inputs)

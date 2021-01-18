@@ -139,7 +139,11 @@ namespace SynthiaTools
         }
 
         /*
-         * Returns 
+         * Returns the current output sample
+         * of the envelope.
+         * 
+         * Calling this making the envelope move
+         * forward one sample.
          */
         public float Process()
         {
