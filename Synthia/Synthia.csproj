@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BaseSources\BaseSources.csproj" />
+    <ProjectReference Include="..\Delay\Delay.csproj" />
     <ProjectReference Include="..\PluginFramework\PluginFramework.csproj" />
     <ProjectReference Include="..\SynthiaTools\SynthiaTools.csproj" />
     <ProjectReference Include="..\Tremolo\Tremolo.csproj" />

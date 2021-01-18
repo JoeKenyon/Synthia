@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synthia", "Synthia\Synthia.csproj", "{44911A4A-F390-4393-9271-5965AF3BD4AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synthia", "Synthia\Synthia.csproj", "{44911A4A-F390-4393-9271-5965AF3BD4AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginFramework", "PluginFramework\PluginFramework.csproj", "{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginFramework", "PluginFramework\PluginFramework.csproj", "{9F5DE277-FFE1-48AB-BEB9-5496C9CD6B75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WahWah", "WahWah\WahWah.csproj", "{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WahWah", "WahWah\WahWah.csproj", "{9EE8E08C-C3BE-4EA7-98FD-BD0B829C1725}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynthiaTools", "SynthiaTools\SynthiaTools.csproj", "{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiaTools", "SynthiaTools\SynthiaTools.csproj", "{1F5F15A8-CFB7-4AAE-9E97-ADEAC8763446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tremolo", "Tremolo\Tremolo.csproj", "{E0F4569C-44B2-4C1F-BB43-0337300640A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tremolo", "Tremolo\Tremolo.csproj", "{E0F4569C-44B2-4C1F-BB43-0337300640A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynthiaTest", "SynthiaTest\SynthiaTest.csproj", "{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiaTest", "SynthiaTest\SynthiaTest.csproj", "{ED0E89D1-3CE5-4AB8-868A-359C668AEFAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseSources", "BaseSources\BaseSources.csproj", "{014D021A-152A-4A02-B9C0-381F465EDD91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseSources", "BaseSources\BaseSources.csproj", "{014D021A-152A-4A02-B9C0-381F465EDD91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delay", "Delay\Delay.csproj", "{63FDC8DC-3803-4D18-81BD-AADE24946DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{014D021A-152A-4A02-B9C0-381F465EDD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{014D021A-152A-4A02-B9C0-381F465EDD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{014D021A-152A-4A02-B9C0-381F465EDD91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
