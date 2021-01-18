@@ -27,8 +27,7 @@ namespace Delay
                     onChange = (x) =>
                     {
                         delayInSamples = (int)((double)x * WaveFormat.SampleRate);
-                        buffer = new List<float>(WaveFormat.SampleRate * 10);
-                        for (int i = 0; i < buffer.Capacity; i++) buffer.Add(0);
+                        for (int i = 0; i < buffer.Capacity; i++) buffer[i] = 0;
                     },
                 },
 
@@ -55,13 +54,13 @@ namespace Delay
         {
             buffer[position] = sample;
 
-            int pos = mod((position - delayInSamples), buffer.Capacity);
+            int pos = mod((position - delayInSamples), buffer.Count);
 
             var delayedSample = buffer[pos];
 
             buffer[position] = (delayedSample * decay) + sample;
 
-            position = mod(position+1, buffer.Capacity);
+            position = ((position+1) % buffer.Count);
 
             return (delayedSample * decay) + sample;
         }

@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiaTest", "SynthiaTest\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseSources", "BaseSources\BaseSources.csproj", "{014D021A-152A-4A02-B9C0-381F465EDD91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delay", "Delay\Delay.csproj", "{63FDC8DC-3803-4D18-81BD-AADE24946DD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delay", "Delay\Delay.csproj", "{63FDC8DC-3803-4D18-81BD-AADE24946DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterResponse", "FilterResponse\FilterResponse.csproj", "{EE0D7006-02FD-401E-9AF6-66EC62066EAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63FDC8DC-3803-4D18-81BD-AADE24946DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0D7006-02FD-401E-9AF6-66EC62066EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0D7006-02FD-401E-9AF6-66EC62066EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0D7006-02FD-401E-9AF6-66EC62066EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0D7006-02FD-401E-9AF6-66EC62066EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

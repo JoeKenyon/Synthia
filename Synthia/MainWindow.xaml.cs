@@ -99,7 +99,7 @@ namespace Synthia
 
             /* 2 buffers seems like a good amount
              * could be changed? */
-            _player = new WaveOut()
+            _player = new WaveOutEvent()
             {
                 NumberOfBuffers = 2,
                 DesiredLatency = 100,

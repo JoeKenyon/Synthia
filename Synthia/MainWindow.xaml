@@ -13,11 +13,21 @@
         HorizontalContentAlignment="Stretch"
         VerticalContentAlignment="Stretch" ResizeMode="CanMinimize"
         Width="1326"
-        Height="688"
+        Height="711"
         Closing="onWindowClose" Icon="/synthiaLogo.png"
         >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF955C5C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        <WrapPanel Orientation="Horizontal" Width="1300" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="261*"/>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Orientation="Horizontal" Width="1300" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="13,0,13,0">
 
             <WrapPanel Orientation="Vertical" Width="100" Background="White" VerticalAlignment="Top" Panel.ZIndex="6" Height="545.96">
                 <Label Height="25" Width="100" Content="Volume" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
@@ -160,7 +170,7 @@
                 <GroupBox Header="Piano" BorderBrush="Black" Height="272.96" Width="558">
                     <WrapPanel Orientation="Vertical">
                         <TextBox IsReadOnly="True" IsEnabled="False" Text=
-                              " ___________________________________________________________                      &#xA;|   |   | |   |   |   |   | |   | |   |   |   |   | |   |   |                        &#xA;|   | S | | D |   |   | G | | H | | J |   |   | L | | ; |   |                       &#xA;|   |___| |___|   |   |___| |___| |___|   |   |___| |___|   |                      &#xA;|     |     |     |     |     |     |     |     |     |     |                      &#xA;|  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |                      &#xA;|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|                      " TextWrapping="Wrap" Width="543" Background="White" Foreground="Black" BorderBrush="Black" FontFamily="Consolas" Height="153" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
+                              " ___________________________________________________________                     |   |   | |   |   |   |   | |   | |   |   |   |   | |   |   |                        &#xA;|   | S | | D |   |   | G | | H | | J |   |   | L | | ; |   |                       &#xA;|   |___| |___|   |   |___| |___| |___|   |   |___| |___|   |                      &#xA;|     |     |     |     |     |     |     |     |     |     |                      &#xA;|  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |                      &#xA;|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|                      " TextWrapping="Wrap" Background="White" Foreground="Black" BorderBrush="Black" FontFamily="Consolas" FontSize="16" FontWeight="Bold" FontStyle="Normal" VerticalContentAlignment="Center" Height="250" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" FlowDirection="LeftToRight"/>
 
                         <!--
                         <Grid VerticalAlignment="Center" Width="538" Height="90" Background="#FFFFCDCD" HorizontalAlignment="Left">
