@@ -159,7 +159,7 @@
                 </GroupBox>
                 <GroupBox Header="Piano" BorderBrush="Black" Height="272.96" Width="558">
                     <WrapPanel Orientation="Vertical">
-                        <TextBox IsReadOnly="True" Text=
+                        <TextBox IsReadOnly="True" IsEnabled="False" Text=
                               " ___________________________________________________________                      &#xA;|   |   | |   |   |   |   | |   | |   |   |   |   | |   |   |                        &#xA;|   | S | | D |   |   | G | | H | | J |   |   | L | | ; |   |                       &#xA;|   |___| |___|   |   |___| |___| |___|   |   |___| |___|   |                      &#xA;|     |     |     |     |     |     |     |     |     |     |                      &#xA;|  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |                      &#xA;|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|                      " TextWrapping="Wrap" Width="543" Background="White" Foreground="Black" BorderBrush="Black" FontFamily="Consolas" Height="153" FontSize="16" FontWeight="Bold" FontStyle="Normal"/>
 
                         <!--

@@ -22,14 +22,14 @@ namespace Tremolo
                     Name="Freq",
                     Min=0, Max=20,
                     ValueString = "{0:0.0}Hz",
-                    onChange = (x) => _freq = (float)x,
+                    onChange = (x) => _freq = Convert.ToSingle(x),
                 },
                 new SliderProperty()
                 {
                     Name="Amp",
                     Min=0, Max=1,
                     ValueString = "{0:0.0}",
-                    onChange = (x) => _amp =(float)x,
+                    onChange = (x) => _amp = Convert.ToSingle(x),
                 },
                 new DropDownProperty()
                 {

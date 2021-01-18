@@ -25,7 +25,7 @@ namespace WahWahEffect
                     Name="CentreFreq",
                     Min=20, Max=4000,
                     ValueString="{0:0.0}Hz",
-                    onChange = (x) => _mainFreq = (float)x,
+                    onChange = (x) => _mainFreq = Convert.ToSingle(x),
                 },
                 new SliderProperty()
                 {
@@ -33,14 +33,14 @@ namespace WahWahEffect
                     Min=0,
                     Max=7,
                     ValueString="{0:0.0}Hz",
-                    onChange = (x) => _freq = (float)x,
+                    onChange = (x) => _freq = Convert.ToSingle(x),
                 },
                 new SliderProperty()
                 {
                     Name="Amp",
                     Min=0, Max=1,
                     ValueString="{0:0.0}",
-                    onChange = (x) => _amp = (float)x,
+                    onChange = (x) => _amp = Convert.ToSingle(x),
                 },
                 new SliderProperty()
                 {
@@ -48,14 +48,14 @@ namespace WahWahEffect
                     Min=-3,//707,
                     Max=20,//5000,
                     ValueString="{0:0.0}dB",
-                    onChange = (x) => _filter.Q = (float)Math.Pow(10.0f, (float)x/20.0f),
+                    onChange = (x) => _filter.Q = (float)Math.Pow(10.0f, Convert.ToSingle(x)/20.0f),
                 },
                 new SliderProperty()
                 {
                     Name="Wet",
                     Min=0, Max=1,
                     ValueString="{0:0.0}",
-                    onChange = (x) => Wet = (float)x,
+                    onChange = (x) => Wet = Convert.ToSingle(x),
                 },
                 new DropDownProperty()
                 {

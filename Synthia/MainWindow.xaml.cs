@@ -23,14 +23,14 @@ namespace Synthia
     public partial class MainWindow : Window
     {
         private Dictionary<string, int> _midiDevices;
-        private WaveFormProvider waveFormProvider;
+        private WaveFormProvider _waveFormProvider;
         private Dictionary<Key, int> _keyboard;
         private MidiIn _currentMidiDevice;
         private bool _initialized = false;
         private List<Key> _pressedKeys;
-        private Dispatcher dispatcher;
-        private IWavePlayer player;
-        int midipressed = 0;
+        private Dispatcher _dispatcher;
+        private IWavePlayer _player;
+        int _midipressed = 0;
         private Synth _synth;
         
         public MainWindow()
@@ -85,27 +85,27 @@ namespace Synthia
 
             /* Get dispatcher of UI thread so
              * that we can update our wave renderer */
-            dispatcher = Dispatcher.CurrentDispatcher;
-            waveFormProvider = new WaveFormProvider(_synth);
-            waveFormProvider.OnRead = (s, e) =>
+            _dispatcher = Dispatcher.CurrentDispatcher;
+            _waveFormProvider = new WaveFormProvider(_synth);
+            _waveFormProvider.OnRead = (s, e) =>
             {
                 WaveFormProvider w = (WaveFormProvider)s;
                 Action c = () =>
                 {
                     this.waveFormElement.Amplitudes = w.Data;
                 };
-                dispatcher.BeginInvoke(c);
+                _dispatcher.BeginInvoke(c);
             };
 
             /* 2 buffers seems like a good amount
              * could be changed? */
-            player = new WaveOut()
+            _player = new WaveOut()
             {
                 NumberOfBuffers = 2,
                 DesiredLatency = 100,
             };
-            player.Init(waveFormProvider);
-            player.Play();
+            _player.Init(_waveFormProvider);
+            _player.Play();
         }
 
         /*
@@ -215,13 +215,13 @@ namespace Synthia
                         s.Height = 20;
                         s.IsEnabled = false;
                         Label sliderValue = new Label();
-                        sliderValue.Content = string.Format(sp.ValueString, (float)s.Value);
+                        sliderValue.Content = string.Format(sp.ValueString, s.Value);
                         sliderValue.Width = 100;
                         sliderValue.Height = widgetHeight;
                         s.ValueChanged += (o, i) =>
                         {
                             sp.onChange(s.Value);
-                            sliderValue.Content = string.Format(sp.ValueString, (float)s.Value);
+                            sliderValue.Content = string.Format(sp.ValueString, s.Value);
                         };
                         w.Children.Add(propName);
                         w.Children.Add(s);
@@ -294,15 +294,15 @@ namespace Synthia
             switch (statusByte)
             {
                 case 0x80:
-                    midipressed--;
+                    _midipressed--;
                     _synth.NoteOff(dataByte1);
                     break;
 
                 case 0x90:
-                    if (midipressed < 4)
+                    if (_midipressed < 4)
                     {
                         _synth.NoteOn(dataByte1);
-                        midipressed++;
+                        _midipressed++;
                     }
                     break;
             }
@@ -333,8 +333,8 @@ namespace Synthia
 
             if (_currentMidiDevice != null)
             {
-                player.Stop();
-                player.Dispose();
+                _player.Stop();
+                _player.Dispose();
             }
         }
 

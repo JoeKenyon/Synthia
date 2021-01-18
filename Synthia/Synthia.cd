@@ -1,2 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WahWahEffect.WahWah">
+    <Position X="10.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Tremolo.Tremolo">
+    <Position X="10.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PluginFramework.SynthEffectPlugin">
+    <Position X="8" Y="12.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SynthiaTools.Mixer">
+    <Position X="8.5" Y="8.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SynthiaTools.BiQuadFilter">
+    <Position X="3" Y="13.75" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="FilterType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SynthiaTools.Envelope">
+    <Position X="14.75" Y="13" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="SynthiaTools.Envelope.EnvState" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PluginFramework.SynthSourcePlugin">
+    <Position X="12.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BaseSources.Sine" Collapsed="true">
+    <Position X="7" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BaseSources.Sawtooth" Collapsed="true">
+    <Position X="13.75" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BaseSources.Square" Collapsed="true">
+    <Position X="11.5" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BaseSources.Triangle" Collapsed="true">
+    <Position X="9.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BaseSources.Noise" Collapsed="true">
+    <Position X="16" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BaseSources.SineSweep" Collapsed="true">
+    <Position X="18.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Synthia.Synth">
+    <Position X="5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>cSDAEyACAAACDEAAkAQAIAAgCIAYAQAgQlAAIBDgEgI=</HashCode>
+      <FileName>Synth.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_mixer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_oscillators" />
+      <Property Name="Effects" />
+      <Property Name="Sources" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Synthia.WaveFormElement">
+    <Position X="12.25" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAIAAgAAAAAAAAAAAIAABAAA=</HashCode>
+      <FileName>WaveFormElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Synthia.WaveFormProvider" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAAAAAgAAgEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>WaveFormProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Synthia.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="17" Y="6.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ClAhMlAgBmIKEQAAoBGCDhSAgACAYEAQAUAAJMQBYAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_waveFormProvider" />
+      <Field Name="_synth" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FunkySound.FunkySound" Collapsed="true">
+    <Position X="8.5" Y="17" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SynthiaTools.Filter">
+    <Position X="3" Y="17.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SynthiaTools.MixerMode">
+    <Position X="11.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SynthiaTools.Oscillator">
+    <Position X="0.75" Y="8.25" Width="1.75" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="FilterType" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

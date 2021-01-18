@@ -14,6 +14,8 @@
     <ProjectReference Include="..\BaseSources\BaseSources.csproj" />
     <ProjectReference Include="..\PluginFramework\PluginFramework.csproj" />
     <ProjectReference Include="..\SynthiaTools\SynthiaTools.csproj" />
+    <ProjectReference Include="..\Tremolo\Tremolo.csproj" />
+    <ProjectReference Include="..\WahWah\WahWah.csproj" />
   </ItemGroup>
 
   <ItemGroup>
