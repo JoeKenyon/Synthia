@@ -4,11 +4,26 @@ using System;
 
 namespace SynthiaTools
 {
-    public enum Filter { LowPass, HighPass, BandPass };
 
+    /*
+     * 
+     * Can set to various filter types
+     *  - Bandpass
+     *  - Lowpass
+     *  - Highpass
+     *  
+     * Q value determines attenuation at 
+     * cuttoff frequency.
+     * 
+     * CutOff value determines the cutoff
+     * frequency of the filter.
+     * 
+     * Wet value determines how noticable
+     * the filter effect is.
+     */
     public class BiQuadFilter
     {
-        // coefficients
+        /* coefficients */
         private double b0;
         private double b1;
         private double b2;
@@ -16,19 +31,22 @@ namespace SynthiaTools
         private double a1;
         private double a2;
 
-        // use to get 
-        // delayed samples
+        /* store delayed samples */
         private float x1;
         private float x2;
         private float y1;
         private float y2;
 
-        // filter properties
+        /* backing store of filter properties */
         private Filter _filterType;
         private float _cutoff;
         private float _q;
 
-        public float Wet { get; set; }
+        public float Wet
+        { 
+            get; set; 
+        }
+
         public float Cutoff
         {
             get => _cutoff;
@@ -91,11 +109,10 @@ namespace SynthiaTools
             }
         }
 
-        // H(s) = 1 / (s^2 + s/Q + 1)
+        /* Direct form 1 */
         public float Apply(float x0)
         {
-             // direct form 1
-             // compute result
+            /* compute result */
              var result = 
                  (b0 / a0) * x0 +
                  (b1 / a0) * x1 +
@@ -103,10 +120,9 @@ namespace SynthiaTools
                  (a1 / a0) * y1 -
                  (a2 / a0) * y2;
 
-             // shift x1 to x2, sample to x1
-             // shift y1 to y2, result to y1 
-             // simulate delay
-             // use previous values next time
+             /* shift x1 to x2, sample to x1 */
+             /* shift y1 to y2, result to y1 */
+             /* simulate delay!! */
              x2 = x1;
              x1 = x0;
              y2 = y1;
@@ -115,7 +131,10 @@ namespace SynthiaTools
             return y1;
         }
 
-        // H(s) = 1 / (s^2 + s/Q + 1)
+        /* 
+         * Transer function for coefficents
+         * H(s) = 1 / (s^2 + s/Q + 1)
+         */
         private void LowPass()
         {
             var omega = 2 * Math.PI * _cutoff / WaveFormat.SampleRate;
@@ -130,7 +149,10 @@ namespace SynthiaTools
             a2 = 1 - alpha;
         }
 
-        // H(s) = s^2 / (s^2 + s/Q + 1)
+        /* 
+         * Transer function for coefficents
+         * H(s) = s^2 / (s^2 + s/Q + 1) 
+         */
         private void HighPass()
         {
             var omega = 2 * Math.PI * _cutoff / WaveFormat.SampleRate;
@@ -145,10 +167,12 @@ namespace SynthiaTools
             a2 = 1 - alpha;
         }
 
-        // H(s) = (s/Q) / (s^2 + s/Q + 1)
+        /* 
+         * Transer function for coefficents
+         * H(s) = (s/Q) / (s^2 + s/Q + 1)
+         */
         private void BandPass()
         {
-            
             var omega = 2 * Math.PI * _cutoff / WaveFormat.SampleRate;
             var cosomega = Math.Cos(omega);
             var alpha = Math.Sin(omega) / (2 * _q);
@@ -161,4 +185,7 @@ namespace SynthiaTools
             a2 = 1 - alpha;
         }
     }
+
+    public enum Filter { LowPass, HighPass, BandPass };
+
 }

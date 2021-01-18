@@ -3,6 +3,7 @@ using NAudio.Wave;
 
 namespace Synthia
 {
+    /* Use this guy to down sample our wave */
     public class WaveFormProvider : ISampleProvider
     {
         public Action<float[]> Update { get; set; }
@@ -24,8 +25,7 @@ namespace Synthia
         public int Read(float[] buffer, int offset, int count)
         {
             // the length of the wave form will determine
-            // how many points per wave cycle
-            // it seems that this is the perfect value
+            // how many points we use to display our wave
             float[] _data = new float[200];
             int samples = Input.Read(buffer, offset, count);
             int step = (500 / _data.Length);
@@ -53,7 +53,6 @@ namespace Synthia
                     acc = 0.0F;
                 }
             }
-
 
             // update the wave form
             // this will force the wave to be

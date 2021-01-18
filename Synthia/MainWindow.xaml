@@ -12,7 +12,7 @@
         HorizontalAlignment="Center"
         HorizontalContentAlignment="Stretch"
         VerticalContentAlignment="Stretch" ResizeMode="CanMinimize"
-        Width="1311"
+        Width="1326"
         Height="688"
         Closing="onWindowClose" Icon="/synthiaLogo.png"
         >

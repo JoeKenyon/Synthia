@@ -274,10 +274,9 @@ namespace Synthia
             return true;
         }
 
-
+        /* Look for effects in our exectuing directory */
         public void IntializeEffects()
         {
-            int effectsFound = 0;
             Effects.Clear();
             var assembly = Assembly.GetExecutingAssembly();
             var folder = Path.GetDirectoryName(assembly.Location);
@@ -288,26 +287,28 @@ namespace Synthia
                 {
                     if (type.BaseType == typeof(SynthEffectPlugin))
                     {
-                        if (effectsFound == 0)
+                        /* first effect should have mixer as input source*/
+                        if (Effects.Count == 0)
                         {
                             var effect = Activator.CreateInstance(type, _mixer) as SynthEffectPlugin;
                             Effects.Add(effect);
                         }
+                        /* rest of effects inputs are the effect before them */
                         else
                         {
-                            var effect = Activator.CreateInstance(type, Effects[effectsFound - 1]) as SynthEffectPlugin;
+                            var effect = Activator.CreateInstance(type, Effects[Effects.Count - 1]) as SynthEffectPlugin;
                             Effects.Add(effect);
                         }
-                        effectsFound++;
                     }
                 }
             }
 
-            if (effectsFound > 0)
-                _lastInput = Effects[effectsFound - 1];
+            /* If we found effects, set the last input as our last found effect */
+            if (Effects.Count > 0)
+                _lastInput = Effects[Effects.Count - 1];
         }
 
-
+        /* Same as initializing effects expect we look for SynthSource plugins */
         public void IntializeSources()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -326,16 +327,18 @@ namespace Synthia
             }
         }
 
+        /* Just incase we want to reset input or something */
         public void clearInputs()
         {
             _mixer.RemoveAllInputs();
         }
 
-        public static float normalise(float inValue, float min, float max)
-        {
-            return (inValue - min) / (max - min);
-        }
-
+        /*
+         * Implemnted Read method from ISampleProvider
+         * 
+         * Will just fill buffer with samples using our
+         * effects and mixer pipelines of ISampleProviders.
+        */
         public int Read(float[] buffer, int offset, int count)
         {
             var samples = _lastInput.Read(buffer, offset, count);
